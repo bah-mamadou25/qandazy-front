@@ -1,0 +1,41 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 200px;
+  background: var(--gradient-color);
+  color: white;
+
+  mat-toolbar {
+    background: var(--gradient-color);
+  }
+
+  mat-icon {
+    margin-right: 8px;
+  }
+
+  a {
+    color: white;
+  }
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.app-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.main-content {
+  padding: 16px;
+}
+

@@ -1,0 +1,37 @@
+<div class="login-container">
+  <mat-card class="login-card mat-elevation-z8">
+    <h2 class="login-title">Qandasy 👋</h2>
+    <p class="login-subtitle">Connecte-toi pour continuer</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" required />
+        <mat-icon matSuffix>mail</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput formControlName="password" type="password" required />
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width login-btn" type="submit">
+        <mat-icon class="btn-icon">login</mat-icon>
+        Connexion
+      </button>
+    </form>
+
+    <div class="divider">
+      <span>ou</span>
+    </div>
+
+    <div class="oauth-buttons">
+
+      <asl-google-signin-button type='standard'
+                                size='large'
+                                shape='pill'
+      logo_alignment='center'></asl-google-signin-button>
+    </div>
+  </mat-card>
+</div>
