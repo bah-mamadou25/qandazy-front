@@ -8,19 +8,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatListModule,
-    RouterOutlet,
-    RouterLink,
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'app-home',
+    imports: [
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatListModule,
+        RouterOutlet,
+        RouterLink,
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   appName = 'Qandazy';

@@ -2,11 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../../core/services/authentication.service';
 
 @Component({
-  selector: 'app-welcome',
-  standalone: true,
-  imports: [],
-  templateUrl: './welcome.component.html',
-  styleUrl: './welcome.component.scss'
+    selector: 'app-welcome',
+    imports: [],
+    templateUrl: './welcome.component.html',
+    styleUrl: './welcome.component.scss'
 })
 export class WelcomeComponent implements OnInit {
   private readonly DEFAULT_USERNAME: '--' = '--';
