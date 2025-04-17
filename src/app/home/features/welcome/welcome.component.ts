@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../../core/services/authentication.service';
 
 @Component({
   selector: 'app-welcome',
@@ -8,12 +9,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrl: './welcome.component.scss'
 })
 export class WelcomeComponent implements OnInit {
-  private readonly DEFAULT_USERNAME = '--';
+  private readonly DEFAULT_USERNAME: '--' = '--';
 
   username: string= this.DEFAULT_USERNAME;
 
+  constructor(private readonly authenticationService: AuthenticationService) { }
+
   ngOnInit(): void {
-    this.username=localStorage.getItem('name') ?? this.DEFAULT_USERNAME;
+    this.username=this.authenticationService.getUsername() ?? this.DEFAULT_USERNAME;
   }
 
 }

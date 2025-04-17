@@ -10,6 +10,8 @@ import {switchMap} from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthenticationService {
+  private readonly jwt_token_key: string='jwt_token_key';
+  private readonly username_key: string='username_key';
   constructor(
     private readonly router: Router,
     private readonly socialAuthService: SocialAuthService
@@ -18,8 +20,8 @@ export class AuthenticationService {
   loggedIn(): void {
     this.socialAuthService.authState.subscribe((auth) => {
       if (auth) {
-        sessionStorage.setItem('jwt_token', auth.idToken);
-        sessionStorage.setItem('name', auth.name);
+        sessionStorage.setItem(this.jwt_token_key, auth.idToken);
+        sessionStorage.setItem(this.username_key, auth.name);
         this.router.navigate(['/']);
       } else {
         this.clearSession();
@@ -34,7 +36,11 @@ export class AuthenticationService {
   }
 
   getToken(): string | null {
-    return sessionStorage.getItem('jwt_token');
+    return sessionStorage.getItem(this.jwt_token_key);
+  }
+
+  getUsername(): string | null {
+    return sessionStorage.getItem(this.username_key);
   }
 
   logout(): void {
@@ -43,8 +49,8 @@ export class AuthenticationService {
   }
 
   clearSession(): void {
-    sessionStorage.removeItem('jwt_token');
-    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('jwt_token_key');
+    sessionStorage.removeItem('username_key');
   }
 
   isTokenExpiringSoon(token: string): boolean {
